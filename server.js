@@ -57,8 +57,8 @@ Generate exactly 3 recommendations. Be specific to their industry and pain point
     const data = await response.json();
 
     if (!response.ok) {
-      console.error('Anthropic error:', data);
-      return res.status(500).json({ error: 'AI service error' });
+      console.error('Anthropic error:', JSON.stringify(data));
+      return res.status(500).json({ error: 'AI service error', detail: data?.error?.message || 'unknown' });
     }
 
     let text = data.content[0].text.trim();
