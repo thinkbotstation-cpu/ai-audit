@@ -328,7 +328,8 @@ checkStep1();
 
 // Step 2 checkboxes
 document.querySelectorAll('.check-item').forEach(item => {
-  item.addEventListener('click', () => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
     const val = item.dataset.val;
     if (item.classList.contains('selected')) {
       item.classList.remove('selected');
